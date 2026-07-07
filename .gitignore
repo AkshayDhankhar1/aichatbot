@@ -3,6 +3,7 @@
 **/.env
 !**/.env.example
 
+
 # ---- Python ----
 __pycache__/
 *.py[cod]
@@ -30,3 +31,6 @@ Thumbs.db
 
 # ---- Misc ----
 *.log
+
+# ---- Docs (RAG Source Documents) ----
+docs/
