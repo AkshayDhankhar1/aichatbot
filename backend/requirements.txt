@@ -1,0 +1,29 @@
+# ---- Web framework ----
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30
+pydantic>=2.7
+pydantic-settings>=2.3
+python-dotenv>=1.0
+
+# ---- LangChain (orchestration) ----
+langchain-core>=0.3,<0.4
+langchain-groq>=0.2
+langchain-text-splitters>=0.3
+
+# ---- Vector DB + hybrid sparse ----
+pinecone>=5.0
+# BM25 sparse encoding is implemented locally in app/bm25.py using mmh3 directly
+# (avoids pinecone-text's mmh3<5 pin, which has no py3.13 wheel and needs a C++
+# compiler on Windows). mmh3 5.x ships wheels for all platforms/pythons.
+mmh3>=5.0
+
+# ---- Local embeddings (384 dims) ----
+# torch is pulled in by sentence-transformers. On CPU-only hosts you may prefer
+# the CPU wheel to save space/memory:
+#   pip install torch --index-url https://download.pytorch.org/whl/cpu
+sentence-transformers>=3.0
+
+# ---- Document loaders ----
+openpyxl>=3.1        # .xlsx
+python-docx>=1.1     # .docx
+pypdf>=4.2           # .pdf
